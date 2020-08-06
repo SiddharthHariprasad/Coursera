@@ -299,7 +299,7 @@ h3.menu-item-title {
     display: block;
     margin: 0 20px;
     padding: 10px;
-    border: 2px solid #fff;
+    border: 2px solid #3F0C1F;
     background-color: #f6b319;
     color: #951c49;
   }
@@ -343,6 +343,7 @@ h3.menu-item-title {
   .menu-item-description {
     text-align: center;
   }
+  /* End Home page */
 }
 
 
@@ -369,7 +370,60 @@ h3.menu-item-title {
     float: left;
     width: 100%;
   }
+  /* End Home page */
 }
 
+@media (max-width: 324px) {
+  /* Home page */
+  #menu-tile, #specials-tile {
+    width: 225px;
+    margin: 0 auto 15px;
+  }
 
+  .col-xxxs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+    width: 100%;
+  }
+    /* End Home page */
+}
 
+@media (max-width: 255px) {
+  /* Header */  
+  .navbar-brand h1 {
+    font-size: 5vw;
+  }
+  /* End Header */
+
+   /* Home page */
+  #menu-tile, #specials-tile {
+    width: 110px;
+    margin: 0 auto 15px;
+  }
+
+  #call-btn > a {
+    font-size: 1.5em;
+    display: block;
+    margin: 0 20px;
+    padding: 10px;
+    border: 2px solid #3F0C1F;
+    background-color: #f6b319;
+    color: #951c49;
+  }
+
+  #call-btn > a > span#ph-num {
+    font-size: 0;
+  }
+
+  .category-tile {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    width: 125px;
+  }
+
+  /* End Home Page */
+}
