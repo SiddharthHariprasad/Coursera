@@ -99,16 +99,15 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // On page load (before images or CSS)
   document.addEventListener("DOMContentLoaded", function (event) {
-
-  // On first load, show home view
-  showLoading("#main-content");
-  $ajaxUtils.sendGetRequest(
-    homeHtml,
-    function (responseText) {
+    // On first load, show home view
+    showLoading("#main-content");
+    $ajaxUtils.sendGetRequest(
+     homeHtml,
+     function (responseText) {
       document.querySelector("#main-content")
         .innerHTML = responseText;
-    },
-    false);
+     },
+     false);
   });
 
   // // Load the menu categories view
@@ -171,9 +170,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
             // Switch CSS class active to menu button
             switchToActive("Menu");
             var categoriesViewHtml =
-              buildCategoriesViewHtml(categories,
-                                      categoriesTitleHtml,
-                                      categoryHtml);
+              buildCategoriesViewHtml(categories,categoriesTitleHtml,categoryHtml);
             insertHtml("#main-content", categoriesViewHtml);
           },
           false);
@@ -184,9 +181,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Using categories data and snippets html
   // build categories view HTML to be inserted into page
-  function buildCategoriesViewHtml(categories,
-                                   categoriesTitleHtml,
-                                   categoryHtml) {
+  function buildCategoriesViewHtml(categories,categoriesTitleHtml,categoryHtml) {
 
     var finalHtml = categoriesTitleHtml;
     finalHtml += "<section class='row'>";
@@ -197,12 +192,8 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
       var html = categoryHtml;
       var name = "" + categories[i].name;
       var short_name = categories[i].short_name;
-      html =
-        insertProperty(html, "name", name);
-      html =
-        insertProperty(html,
-                       "short_name",
-                       short_name);
+      html =insertProperty(html, "name", name);
+      html =insertProperty(html,"short_name",short_name);
       finalHtml += html;
     }
 
@@ -224,9 +215,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
           menuItemHtml,
           function (menuItemHtml) {
             var menuItemsViewHtml =
-              buildMenuItemsViewHtml(categoryMenuItems,
-                                     menuItemsTitleHtml,
-                                     menuItemHtml);
+              buildMenuItemsViewHtml(categoryMenuItems,menuItemsTitleHtml,menuItemHtml);
             insertHtml("#main-content", menuItemsViewHtml);
           },
           false);
@@ -237,9 +226,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
   // Using category and menu items data and snippets html
   // build menu items view HTML to be inserted into page
-  function buildMenuItemsViewHtml(categoryMenuItems,
-                                  menuItemsTitleHtml,
-                                  menuItemHtml) {
+  function buildMenuItemsViewHtml(categoryMenuItems,menuItemsTitleHtml,menuItemHtml) {
 
     menuItemsTitleHtml =
       insertProperty(menuItemsTitleHtml,
@@ -305,9 +292,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
   // Appends price with '$' if price exists
-  function insertItemPrice(html,
-                           pricePropName,
-                           priceValue) {
+  function insertItemPrice(html,pricePropName,priceValue) {
     // If not specified, replace with empty string
     if (!priceValue) {
       return insertProperty(html, pricePropName, "");;
@@ -320,9 +305,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
   // Appends portion name in parens if it exists
-  function insertItemPortionName(html,
-                                 portionPropName,
-                                 portionValue) {
+  function insertItemPortionName(html,portionPropName,portionValue) {
     // If not specified, return original string
     if (!portionValue) {
       return insertProperty(html, portionPropName, "");
